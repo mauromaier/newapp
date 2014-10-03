@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   minWidth="955" 
+			   minHeight="600"
+			   backgroundColor="#BDD1F9">
+	<fx:Style source="index.css"/>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			
+			import view.MapaUI;
+
+
+			
+			private function onClickMapa(evt:MouseEvent):void{
+				var telaMapa:MapaUI = new MapaUI();
+				PopUpManager.addPopUp(telaMapa, this,true);
+				PopUpManager.centerPopUp(telaMapa);
+			}
+		]]>
+	</fx:Script>
+	<mx:Button label="Mapa" width="230" height="66" id="btMapa" chromeColor="#C9D0D6" verticalCenter="30" left="470" click="onClickMapa(event)"/>
+	
+</s:Application>
