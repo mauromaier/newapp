@@ -12,10 +12,11 @@
 	
 	<os:Map id="fxmap"
 			width="935"
-			height="600"
+			height="580"
+			zoom="11"
 			center="4.78783,45.68800"
 			x="10"
-			y="50">
+			y="10">
 		<os:Mapnik name="Mapnik"/>
 		<os:MousePosition x="10"
 						  y="{fxmap.height-20}"
@@ -32,7 +33,7 @@
 		<![CDATA[
 			import org.openscales.core.Map;
 			import org.openscales.core.feature.PointFeature;
-			import org.openscales.core.layer.*;
+			import org.openscales.core.layer.FeatureLayer;
 			import org.openscales.core.style.Style;
 			import org.openscales.geometry.Point;
 			import org.openscales.proj4as.ProjProjection;
