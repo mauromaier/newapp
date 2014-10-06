@@ -15,6 +15,7 @@
   </compiler>
   <theme themeIsDefault="false" themeIsSDK="true" themeLocation="${SDK_THEMES_DIR}/frameworks/themes/Wireframe"/>
   <applications>
+    <application path="view/MapaMarkersUI.mxml"/>
     <application path="index.mxml"/>
   </applications>
   <modules/>

@@ -11,24 +11,46 @@
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
+			//import org.openscales.basetypes.Location;
+			import org.openscales.geometry.basetypes.Location;
 			import org.openscales.core.Map;
+			import org.openscales.core.feature.CustomMarker;
 			import org.openscales.core.feature.PointFeature;
 			import org.openscales.core.layer.FeatureLayer;
 			import org.openscales.core.style.Style;
 			import org.openscales.geometry.Point;
 			import org.openscales.proj4as.ProjProjection;
-			import org.openscales.core.feature.CustomMarker;
 			
 			[Bindable] private var map:Map = null;
 			private function initMap():void {
 				map = fxmap.map;
+				var markers:FeatureLayer = new FeatureLayer("NameOfYourLayerWithMarkers");
+				markers.projection = new ProjProjection("EPSG:4326");
+				markers.generateResolutions(55);
+				markers.style = Style.getDefaultPointStyle();
+				
+				//add the first marker
+				var marker:PointFeature = PointFeature.createPointFeature(new Location(-51.87725,-28.79047));
+				markers.addFeature(marker);
+				
+				//add a second marker
+				marker = PointFeature.createPointFeature(new Location(-47.92080,-9.96000));
+				markers.addFeature(marker);
+				
+				//add marker with different symbol, writing url address
+				markers.addFeature(CustomMarker.
+					createUrlBasedMarker("earth.google.com/intl/en_uk/outreach/images/add_placemark.png",
+						new Location(-47.98603,-19.15030)));
+				
+				//add the layer
+				map.addLayer(markers);
 			}
 		]]>
 	</fx:Script>
 	
 	<os:Map id="fxmap"
 			width="935"
-			height="580"
+			height="632"
 			zoom="11"
 			center="4.78783,45.68800"
 			x="10"
