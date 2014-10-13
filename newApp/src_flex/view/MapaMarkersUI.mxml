@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   minWidth="955"
 			   minHeight="600"
 			   xmlns:os="http://openscales.org"
-			   creationComplete="initMap();">
+			   creationComplete="initMap();" close="onClose();">
 	
 	<fx:Declarations>
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
+			import mx.managers.PopUpManager;
+			
 			import org.openscales.core.Map;
 			import org.openscales.core.feature.CustomMarker;
 			import org.openscales.core.feature.PointFeature;
@@ -25,31 +27,36 @@
 				map = fxmap.map;
 				var markers:FeatureLayer = new FeatureLayer("NameOfYourLayerWithMarkers");
 				markers.projection = new ProjProjection("EPSG:4326");
-				markers.generateResolutions(55);
+				markers.generateResolutions(19);
 				markers.style = Style.getDefaultPointStyle();
 				
 				//add the first marker
-				var marker:PointFeature = PointFeature.createPointFeature(new Location(-51.87725,-28.79047));
+				var marker:PointFeature = PointFeature.createPointFeature(new Location(4.85680,45.75336));
 				markers.addFeature(marker);
 				
+				
 				//add a second marker
-				marker = PointFeature.createPointFeature(new Location(-47.92080,-9.96000));
+				marker = PointFeature.createPointFeature(new Location(-52.84679,-11.53715));
 				markers.addFeature(marker);
 				
 				//add marker with different symbol, writing url address
 				markers.addFeature(CustomMarker.
-					createUrlBasedMarker("earth.google.com/intl/en_uk/outreach/images/add_placemark.png",
-						new Location(-47.98603,-19.15030)));
+					createUrlBasedMarker("www.earth.google.com/intl/en_uk/outreach/images/add_placemark.png",
+						new Location(-52.81040,-29.39049)));
 				
 				//add the layer
 				map.addLayer(markers);
+			}
+			
+			private function onClose():void{
+				PopUpManager.removePopUp(this);
 			}
 		]]>
 	</fx:Script>
 	
 	<os:Map id="fxmap"
 			width="935"
-			height="632"
+			height="554"
 			zoom="11"
 			center="4.78783,45.68800"
 			x="10"
@@ -66,4 +73,4 @@
 				x="{fxmap.x+10}"
 				y="{fxmap.y+10}"/>
 	
-</s:Application>
+</s:TitleWindow>
