@@ -13,6 +13,7 @@
 		<![CDATA[
 			import mx.managers.PopUpManager;
 			
+			import org.openscales.core.style.symbolizer.PointSymbolizer;
 			import org.openscales.core.Map;
 			import org.openscales.core.feature.CustomMarker;
 			import org.openscales.core.feature.PointFeature;
@@ -39,10 +40,23 @@
 				marker = PointFeature.createPointFeature(new Location(-52.84679,-11.53715));
 				markers.addFeature(marker);
 				
+				marker = PointFeature.createPointFeature(new Location(-47.62485,-23.25011));
+				markers.addFeature(marker);
+				
 				//add marker with different symbol, writing url address
 				markers.addFeature(CustomMarker.
 					createUrlBasedMarker("www.earth.google.com/intl/en_uk/outreach/images/add_placemark.png",
 						new Location(-52.81040,-29.39049)));
+				
+				markers.addFeature(CustomMarker.
+					createUrlBasedMarker("",
+						new Location(-45.33970,-13.07807)));
+				
+				markers.addFeature(CustomMarker.
+					createUrlBasedMarker("",
+						new Location(-63.62095,-2.11843)));
+				
+	
 				
 				//add the layer
 				map.addLayer(markers);
@@ -57,8 +71,8 @@
 	<os:Map id="fxmap"
 			width="935"
 			height="554"
-			zoom="11"
-			center="4.78783,45.68800"
+			zoom="3"
+			center="-52.81040,-29.39049"
 			x="10"
 			y="10">
 		<os:Mapnik name="Mapnik"/>
