@@ -13,7 +13,7 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.managers.PopUpManager;
-			
+		
 			import view.MapaMarkersUI;
 			import view.MapaUI;
 
@@ -30,9 +30,11 @@
 				PopUpManager.addPopUp(telaMapa, this,true);
 				PopUpManager.centerPopUp(telaMapa);
 			}
+			
+
 		]]>
 	</fx:Script>
-	<mx:Button label="Mapa 01" width="230" height="66" id="btMapa" chromeColor="#C9D0D6" verticalCenter="30" left="470" click="onClickMapa(event)"/>
-	<mx:Button label="Mapa 02" width="230" height="66" id="btMapa2" chromeColor="#C9D0D6" verticalCenter="110" left="470" click="onClickMapa2(event)"/>
+	<mx:Button label="Mapa 01" width="230" height="66" id="btMapa" chromeColor="#C9D0D6" verticalCenter="-83" left="470" click="onClickMapa(event)"/>
+	<mx:Button label="Mapa 02" width="230" height="66" id="btMapa2" chromeColor="#C9D0D6" verticalCenter="-3" left="470" click="onClickMapa2(event)"/>
 	
 </s:Application>
